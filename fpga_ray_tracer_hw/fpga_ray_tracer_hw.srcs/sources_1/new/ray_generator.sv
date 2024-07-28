@@ -47,6 +47,7 @@ module ray_generator(
     input wire clk, rst,
 //    input integer img_width, img_height,
     output logic rvalid,
+    // input logic c1_ready,
     output ray_t ray_gen,
     output integer cnt_w, cnt_h, cnt_s
     );
@@ -86,6 +87,8 @@ module ray_generator(
                         sample.y <= 32'h0000399a - _fix_mul((_fix_from_int(cnt_h) + offset.y), 32'h00000148);
                         sample.z <= 32'h00004000;
 
+                        rvalid <= 1'b1;
+
                         if (cnt_s == `SAMPLES_PER_PX-1) begin
                             cnt_s <= 0;
                             cnt_w <= cnt_w + 1;
@@ -93,7 +96,7 @@ module ray_generator(
                                 cnt_h <= cnt_h + 1;
                                 cnt_w <= 0;
                                 if (cnt_h == `IMAGE_HEIGHT-1) begin
-                                    rvalid <= 1'b1;
+                                    // rvalid <= 1'b1;
                                     cnt_h <= 0;
                                     done <= 1'b1;
                                 end

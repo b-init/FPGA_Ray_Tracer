@@ -38,6 +38,14 @@ typedef struct packed {
     fix3_t dirn;
 } ray_t;
 
+typedef logic [7:0] color8_t;
+
+typedef struct packed {
+    color8_t r;
+    color8_t g;
+    color8_t b;
+} rgb24_t;
+
 //// color data type, a vec3 interpreted as {r, g, b} 
 //typedef vec3_t color_t;
 
