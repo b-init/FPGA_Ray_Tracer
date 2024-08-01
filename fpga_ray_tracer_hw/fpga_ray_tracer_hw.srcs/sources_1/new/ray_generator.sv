@@ -48,12 +48,12 @@ module ray_generator(
 //    input integer img_width, img_height,
     output logic rvalid,
     // input logic c1_ready,
-    output ray_t ray_gen,
-    output integer cnt_w, cnt_h, cnt_s
+    output ray_t ray_gen
+//    output integer cnt_w, cnt_h, cnt_s
     );
       
     logic done;  
-//    integer cnt_w, cnt_h, cnt_s;
+    integer cnt_w, cnt_h, cnt_s;
     fix3_t offset;
     fix3_t sample;
 //    fix3_t upperleft;

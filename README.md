@@ -2,6 +2,10 @@
 
 A Simple Ray Tracing Engine implemented in hardware
 
+![render](/content/sw_render.png)
+
+![arch](/content/fpga_ray_tracer_arch.png)
+
 ## Project Organization
 
 - [/software_model](./software_model/) contains the software ray tracer model this GPU design is based on.
@@ -15,7 +19,7 @@ A Simple Ray Tracing Engine implemented in hardware
   - On closer inspection, I cannot bear the amount of resources that floating point arithmetic will overall consume. Stuff like generating random floats and so on. Let's go head first into fixed point.
   - Going with Q18.14 fixed point for all arithmetic.
 - Ideated the architecture on paper. A ray generator that'll generate rays and assign it to one of the ray tracing cores, with a pixel accumulator storing the color for the pixel and outputting it or saving it in memory.
-  ![arch](/content/fpga_ray_tracer_arch.png)
+  <!-- ![arch](/content/fpga_ray_tracer_arch.png) -->
 <!-- - Decided to build the entire thing bottom-up, starting with rendering the background. -->
 - Let's start by building the ray generator, which will generate a random ray within each pixel for each sample.
   - Implemented psuedo rng for generating random rays within each pixel.
